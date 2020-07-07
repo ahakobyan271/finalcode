@@ -1,11 +1,11 @@
 var canvas = new fabric.Canvas('c10', { width: 850, height: 720, top: 60 });
 
-window.addEventListener('load', function () {
+/*window.addEventListener('load', function () {
 
   const loader = document.querySelector('.loader')
 
   loader.classList.add('hidden')
-})
+})*/
 
 
 
