@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Merlin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Canvas</title>
+  <link rel="shortcut icon" type="image/png" href="image/logo1.png">
 
   <link rel="stylesheet" href="new.css">
 </head>
@@ -12,30 +14,31 @@
 
 <body>
 
+  <div class="buttonbar-wrapper">
+
+    <div id="buttonbar">
 
 
-  <div id="buttonbar">
 
-    <button class="unclicked style" id="detail option0">
-      <a href="index.html" class="link">Back</a>
+      <button class="unclicked style hidden" id="detail option10">Clear details</button>
+      <button class="unclicked style" id="detail option9">Clear canvas</button>
+
+      <button class="unclicked style" id="detail option2" onclick="saveimage()"><a href="order-form.html">Order your
+          design</a>
+      </button>
+      <button class="unclicked style" id="detail option11" onclick="downloadimage()">Download your design as
+        image</button>
 
 
-    </button>
-    <button class="unclicked style" id="detail option1">Details</button>
-    <button class="unclicked style" id="detail option2" onclick="saveimage()">Save and download</button>
 
-    <button class="unclicked style" id="detail option9">Clear canvas</button>
-    <button class="unclicked style" id="detail option10">Clear details</button>
+    </div>
 
   </div>
-
-
 
 
 
   <div class="desk">
-    <canvas id="c10"
-      style="position: absolute;  top:80px; box-shadow: 1px 5px 10px rgb(148, 147, 147); border-radius: 10px;   "></canvas>
+    <canvas id="c10" style=" box-shadow: 2px 4px 15px rgb(134, 132, 132); border-radius: 10px;   "></canvas>
   </div>
 
 
@@ -47,9 +50,12 @@
 
 
 
+  <div class="library1-wrapper">
 
+    <div id="library1" data-button="minimal"> </div>
 
-  <div id="library1" class="hide" data-button="minimal"> </div>
+  </div>
+
 
 
 
@@ -59,10 +65,10 @@
 
   <div class="total"> </div>
 
-  <div id="link">
 
-    <img src="" id="linkimg" alt="">
-  </div>
+
+
+
 
 
 
@@ -76,9 +82,12 @@
 
   <script src="jquery.js"></script>
   <script src="fabric2.js"></script>
-  <script src="new.js"></script>
+  <script src="forCanvasfunctions.js"></script>
+  <script src="FileSaver.js"></script>
 
   <script src="cart.js"></script>
+
+
 
 
 

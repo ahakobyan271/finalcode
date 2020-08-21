@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="contact form example">
+  <link rel="shortcut icon" type="image/png" href="image/logo1.png">
+  <title>Promo code</title>
+</head>
+
+<body>
+
+  <h2 id="heading">Register Your Promo code and get 5% from each sale made with Your Promo code,
+    share your Promo code with your followers and
+    give them a chance to enjoy 5% discount on each order.</h2>
+
+  <!-- START HERE -->
+  <link rel="shortcut icon" type="image/png" href="image/logo1.png">
+  <link rel="stylesheet" href="pure.css">
+  <link rel="stylesheet" href="styleformsubmission.css">
+
+
+
+  <form id="theFormID" class="gform pure-form pure-form-stacked" method="POST" data-email="profine.digital@gmail.com"
+    action="https://script.google.com/macros/s/AKfycbxPzXdrFgLCjuLw94FFuzXxx7UPTfZKZDBsXfNV3uMEDuB3knNs/exec">
+
+
+    <!-- change the form action to your script url -->
+
+
+
+
+    <div class="form-elements">
+
+      <fieldset class="promo-check">
+        <label for="promo-forcheck">Your Promo code: </label>
+        <input id="promo-forcheck" name="promo-forcheck" required placeholder="  " />
+      </fieldset>
+
+
+      <fieldset class="pure-group hidden">
+        <label for="promo">Your Promo code: </label>
+        <input id="promo" name="promo" placeholder="  " />
+      </fieldset>
+
+
+
+      <fieldset class="pure-group">
+        <label for="name">Your name and surname: </label>
+        <input id="name" name="name" placeholder="  " />
+      </fieldset>
+
+
+
+
+
+      <fieldset class="pure-group ">
+        <label for="phone">Your phone number: </label>
+        <input id="phone" name="phone" placeholder="+374" />
+      </fieldset>
+
+
+
+
+
+      <fieldset class="pure-group">
+        <label for="social">Your social media account: </label>
+        <input id="social" name="social" placeholder=" "></input>
+      </fieldset>
+
+
+
+      <fieldset class="pure-group">
+        <label for="email"><em>Your</em> Email Address:</label>
+        <input id="email" name="email" type="email" value="" required placeholder=" " />
+        <span class="email-invalid" style="display:none">
+          Must be a valid email address</span>
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="Payment">Payment method: </label>
+        <select id="payment method" name="payment method">
+          <option value="Bank card">Bank card </option>
+          <option value="Tellcell">Tellcell </option>
+          <option value="Idram">Idram </option>
+          <option value="Phone">Phone </option>
+
+        </select>
+      </fieldset>
+
+
+
+
+
+
+      <button id="submitpromo" class="">
+        Submit your Promo code</button>
+    </div>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2><em>Thanks</em> for using our service!
+        Your Promo code will be activated in 24 hours!</h2>
+    </div>
+
+  </form>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" type="text/javascript" src="promocode-submission-handler.js"></script>
+
+
+  <!-- END -->
+
+</body>
+
+</html>

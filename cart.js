@@ -12,7 +12,7 @@ var cart = {}
 
 
 $.getJSON('data.json', function (data) {
-  var goods = data
+  //var goods = data
   checkcart()
   console.log(cart)
   /* for(var key in data){
@@ -23,20 +23,20 @@ $.getJSON('data.json', function (data) {
 
     var out = ''
     for (var key in cart) {
-      out += '<div class="cell">';
-      out += '<img data-price=' + goods[key]['price'] + ' class="detail img "  src="' + goods[key]['photo'] + '"   >';
-      out += '<p class="price"> ' + goods[key]['name'] + '</p>'
-      out += '<p class="price">$' + goods[key]['price'] + '</p>'
-      out += '<button class="addtocanvasBtn" data-price="' + goods[key]['price'] + '">add to</button>'
+      out += '<div class="cell" data-id=' + data[key]['id'] + ' data-price=' + Math.round((data[key]['weight'] * 2500 * data[key]['plating']) * 100) / 100 + ' >';
+      out += '<img    class="detail img "  src="' + data[key]['photo'] + '"   >';
+
+      out += '<p class="price">' + Math.round((data[key]['weight'] * 2500 * data[key]['plating']) * 100) / 100 + ' AMD</p>'
+      //out += '<p class="addtocanvasBtn" data-id=' + data[key]['id'] + ' data-price="' + data[key]['weight'] * 2500 + '">Add to canvas</p>'
       //out+='<button  class="deletebtn" data-art="'+goods[key]['id']+'" >delete</button>'
-      out += '<p class="count"> 0 </p>'
+      out += '<p class="count">  </p>'
 
       out += '</div>';
 
     }
     $('#library1').html(out);
     addtocanvas()
-    // deleteitem()
+
   }
 
 })
@@ -62,31 +62,36 @@ function checkcart() {
   if (localStorage.getItem('cart') != null) {
 
     cart = JSON.parse(localStorage.getItem('cart'))
+    document.getElementById('detail option10').classList.remove('hidden')
   }
+
 
 }
 
 
 function addtocanvas() { //add detail to canvas attach price
 
-  document.querySelectorAll('.addtocanvasBtn').forEach(el => {
+  document.querySelectorAll('.cell').forEach(el => {
     el.addEventListener("click", addimg)
 
     function addimg() {
 
-      var cell = el.parentElement
+      var cell = el
       var imagesrc = cell.getElementsByTagName('img')[0].src
 
 
 
       fabric.Image.fromURL(imagesrc, img => {
 
-        console.log(imagesrc)
+        //console.log(imagesrc)
         img.set({ price: parseFloat(this.dataset.price) });
+        img.set({ id: this.dataset.id });
         canvas.add(img);
         canvas.setActiveObject(img);
 
-        console.log({ price: this.dataset.price })
+        //console.log({ price: this.dataset.price })
+        // console.log({ id: this.dataset.id })
+        //console.log(el.parentElement)
         return false
 
 
@@ -101,7 +106,8 @@ function addtocanvas() { //add detail to canvas attach price
 
 function updatecount() { //update quantity of details in the column
   var count = 0
-  document.querySelectorAll('#library1 button').forEach(el => {
+
+  document.querySelectorAll('.cell').forEach(el => {
     el.addEventListener("click", newcount)
 
 
@@ -116,10 +122,11 @@ function updatecount() { //update quantity of details in the column
 
     function displaynum() {
 
-      var cell = el.parentElement
+      var cell = el
+
 
       var countnum = cell.getElementsByClassName('count')[0]
-      countnum.innerHTML = count
+      countnum.innerHTML = "Count: " + count
     }
 
   })
@@ -150,7 +157,7 @@ function updatecount() { //update quantity of details in the column
 
 }*/
 
-document.getElementById('detail option10').addEventListener('click', function () {
+document.getElementById('detail option10').addEventListener('click', function () {   //clear details list
   localStorage.removeItem('cart')
   document.getElementById('library1').innerHTML = ''
 
